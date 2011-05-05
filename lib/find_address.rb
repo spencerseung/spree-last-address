@@ -3,15 +3,15 @@ class FindAddressHelper
   
   def self.find_address(email)
     past = Order.order("created_at").where(:email => email).limit(5)
-    past.reverse!.pop
     bill_address , ship_address = nil , nil
-    while !bill_address and order = past.pop
+    past.each do |order|
       if order.bill_address
         bill_address = order.bill_address.clone
         ship_address = order.ship_address.clone
       end
-      #puts "Found address= #{bill_address} "
+      # puts "Found address= #{bill_address} "
     end
+    puts "counter is #{counter}"
     return bill_address , ship_address
   end
   
