@@ -11,7 +11,6 @@ class FindAddressHelper
       end
       # puts "Found address= #{bill_address} "
     end
-    puts "counter is #{counter}"
     return bill_address , ship_address
   end
   
